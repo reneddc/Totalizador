@@ -5,10 +5,19 @@
       <label for="cantidad-items">Cantidad de ítems: </label>
       <input type="number" id="cantidad-items" /><br>
       <label for="precio-items">Precio de ítems: </label>
-      <input type="number" id="precio-items" />
+      <input type="number" id="precio-items" /><br>
+      <label for="codigo-estado">Código de Estado: </label>
+      <select id="codigo-estado">
+        <option value="UT">UT</option>
+        <option value="NV">NV</option>
+        <option value="TX">TX</option>
+        <option value="AL">AL</option>
+        <option value="CA">CA</option>
+      </select><br>
       <input type="submit" value="Mostrar" />
     </form>
     <div id="valores-div"></div>
+ 
     <script type="module" src="./src/presenter.js"></script>
   </body>
 </html>
