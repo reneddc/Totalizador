@@ -1,3 +1,5 @@
+import porcentaje_estado from "./impuestoEstado";
+ 
 const form = document.querySelector("#totalizar-form");
  
 //Secciones div
@@ -11,10 +13,12 @@ const codigoEstado = document.querySelector("#codigo-estado");
  
 form.addEventListener("submit", (event) => {
   event.preventDefault();
+  var porcentajeEstado = porcentaje_estado(codigoEstado.value);
  
   valoresDiv.innerHTML = `<p>Cantidad de Items: ${cantidadItems.value} </p>
                           <p>Precio por Item: $ ${precioItems.value} </p>
-                          <p>Codigo de Estado: ${codigoEstado.value} </p>`;
+                          <p>Codigo de Estado: ${codigoEstado.value} </p>
+                          <p>Porcentaje de Impuesto: ${porcentajeEstado}% </p>`;
 });
 
 
