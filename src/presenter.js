@@ -1,10 +1,17 @@
-const cantidadItems = document.querySelector("#cantidad-items");
 const form = document.querySelector("#totalizar-form");
-const cantidadItemsDiv = document.querySelector("#cantidad-items-div");
+ 
+//Secciones div
+const valoresDiv = document.querySelector("#valores-div");
+ 
+//Valores input
+const cantidadItems = document.querySelector("#cantidad-items");
+const precioItems = document.querySelector("#precio-items");
  
 form.addEventListener("submit", (event) => {
   event.preventDefault();
  
-  cantidadItemsDiv.innerHTML = "<p>Cantidad de Items: " + cantidadItems.value + "</p>";
+  valoresDiv.innerHTML = `<p>Cantidad de Items: ${cantidadItems.value} </p>
+                          <p>Precio por Item: $ ${precioItems.value} </p>`;
 });
+
 
