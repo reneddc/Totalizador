@@ -11,7 +11,6 @@ const cantidadItems = document.querySelector("#cantidad-items");
 const precioItems = document.querySelector("#precio-items");
 const codigoEstado = document.querySelector("#codigo-estado");
  
- 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
   var porcentajeEstado = porcentaje_estado(codigoEstado.value);
@@ -25,12 +24,16 @@ form.addEventListener("submit", (event) => {
   var porcentajeEstadoTX = porcentaje_estado("TX");
   var valorImpuestoTX = valor_impuesto(precioNeto,porcentajeEstadoTX);
  
+  //AL
+  var porcentajeEstadoAL = porcentaje_estado("AL");
+  var valorImpuestoAL = valor_impuesto(precioNeto,porcentajeEstadoAL);
+ 
   valoresDiv.innerHTML = `<p>Cantidad de Items: ${cantidadItems.value} </p>
                           <p>Precio por Item: $ ${precioItems.value} </p>
                           <p>Codigo de Estado: ${codigoEstado.value} </p>
                           <p>Porcentaje de Impuesto: ${porcentajeEstado}% </p>
                           <p>Precio Neto (${cantidadItems.value} * $${precioItems.value}):  $ ${precioNeto}</p>
                           <p>Impuesto para CA (${porcentajeEstadoCA}%):  $ ${valorImpuestoCA}</p>
-                          <p>Impuesto para TX (${porcentajeEstadoTX}%):  $ ${valorImpuestoTX}</p>`;
+                          <p>Impuesto para TX (${porcentajeEstadoTX}%):  $ ${valorImpuestoTX}</p>
+                          <p>Impuesto para AL (${porcentajeEstadoAL}%):  $ ${valorImpuestoAL}</p>`;
 });
-
