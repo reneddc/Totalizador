@@ -62,6 +62,13 @@ form.addEventListener("submit", (event) => {
   var porcentajeDescuento30000 = porcentaje_descuento(30000);
   var valorDescuento30000= valor_descuento(precioNeto,porcentajeDescuento30000);
 
+  //Precio Total
+  var porcentajeImpuestoTotal = porcentaje_estado(codigoEstado.value);
+  var valorImpuestoTotal = valor_impuesto(precioNeto,porcentajeImpuestoTotal);
+  var porcentajeDescuentoTotal= porcentaje_descuento(precioNeto);
+  var valorDescuentoTotal= valor_descuento(precioNeto,porcentajeDescuentoTotal);
+  var precioTotal = precioNeto + valorImpuestoTotal - valorDescuentoTotal;
+
  
   valoresDiv.innerHTML = `<p>Cantidad de Items: ${cantidadItems.value} </p>
                           <p>Precio por Item: $ ${precioItems.value} </p>
@@ -77,5 +84,6 @@ form.addEventListener("submit", (event) => {
                           <p>Descuento para $3000 (${porcentajeDescuento3000}%):  $ ${valorDescuento3000}</p>
                           <p>Descuento para $7000 (${porcentajeDescuento7000}%):  $ ${valorDescuento7000}</p>
                           <p>Descuento para $10000 (${porcentajeDescuento10000}%):  $ ${valorDescuento10000}</p>
-                          <p>Descuento para $30000 (${porcentajeDescuento30000}%):  $ ${valorDescuento30000}</p>`;
+                          <p>Descuento para $30000 (${porcentajeDescuento30000}%):  $ ${valorDescuento30000}</p>
+                          <p>Precio Total (descuento e impuesto):  $ ${precioTotal}</p>`;
 });
