@@ -32,6 +32,10 @@ form.addEventListener("submit", (event) => {
   //NV
   var porcentajeEstadoNV = porcentaje_estado("NV");
   var valorImpuestoNV = valor_impuesto(precioNeto,porcentajeEstadoNV);
+
+  //UT
+  var porcentajeEstadoUT = porcentaje_estado("UT");
+  var valorImpuestoUT = valor_impuesto(precioNeto,porcentajeEstadoUT);
  
   valoresDiv.innerHTML = `<p>Cantidad de Items: ${cantidadItems.value} </p>
                           <p>Precio por Item: $ ${precioItems.value} </p>
@@ -41,5 +45,6 @@ form.addEventListener("submit", (event) => {
                           <p>Impuesto para CA (${porcentajeEstadoCA}%):  $ ${valorImpuestoCA}</p>
                           <p>Impuesto para TX (${porcentajeEstadoTX}%):  $ ${valorImpuestoTX}</p>
                           <p>Impuesto para AL (${porcentajeEstadoAL}%):  $ ${valorImpuestoAL}</p>
-                          <p>Impuesto para NV (${porcentajeEstadoNV}%):  $ ${valorImpuestoNV}</p>`;
+                          <p>Impuesto para NV (${porcentajeEstadoNV}%):  $ ${valorImpuestoNV}</p>
+                          <p>Impuesto para UT (${porcentajeEstadoUT}%):  $ ${valorImpuestoUT}</p>`;
 });
