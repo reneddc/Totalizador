@@ -14,11 +14,13 @@ const codigoEstado = document.querySelector("#codigo-estado");
 form.addEventListener("submit", (event) => {
   event.preventDefault();
   var porcentajeEstado = porcentaje_estado(codigoEstado.value);
+  var precioNeto = cantidadItems.value * precioItems.value;
  
   valoresDiv.innerHTML = `<p>Cantidad de Items: ${cantidadItems.value} </p>
                           <p>Precio por Item: $ ${precioItems.value} </p>
                           <p>Codigo de Estado: ${codigoEstado.value} </p>
-                          <p>Porcentaje de Impuesto: ${porcentajeEstado}% </p>`;
+                          <p>Porcentaje de Impuesto: ${porcentajeEstado}% </p>
+                          <p>Precio Neto (${cantidadItems.value} * $${precioItems.value}):  $ ${precioNeto}</p>`;
 });
 
 
