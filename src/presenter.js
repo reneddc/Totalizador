@@ -1,4 +1,5 @@
 import porcentaje_estado from "./impuestoEstado";
+import valor_impuesto from "./valorImpuesto";
  
 const form = document.querySelector("#totalizar-form");
  
@@ -16,12 +17,13 @@ form.addEventListener("submit", (event) => {
   var porcentajeEstado = porcentaje_estado(codigoEstado.value);
   var precioNeto = cantidadItems.value * precioItems.value;
  
+  var porcentajeEstadoCA = porcentaje_estado("CA");
+  var valorImpuestoCA = valor_impuesto(precioNeto,porcentajeEstadoCA);
+ 
   valoresDiv.innerHTML = `<p>Cantidad de Items: ${cantidadItems.value} </p>
                           <p>Precio por Item: $ ${precioItems.value} </p>
                           <p>Codigo de Estado: ${codigoEstado.value} </p>
                           <p>Porcentaje de Impuesto: ${porcentajeEstado}% </p>
-                          <p>Precio Neto (${cantidadItems.value} * $${precioItems.value}):  $ ${precioNeto}</p>`;
+                          <p>Precio Neto (${cantidadItems.value} * $${precioItems.value}):  $ ${precioNeto}</p>
+                          <p>Impuesto para CA (${porcentajeEstadoCA}%):  $ ${valorImpuestoCA}</p>`;
 });
-
-
-
