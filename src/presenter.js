@@ -1,5 +1,7 @@
 import porcentaje_estado from "./impuestoEstado";
 import valor_impuesto from "./valorImpuesto";
+import porcentaje_descuento from "./porcentajeDescuento";
+import valor_descuento from "./valorDescuento";
  
 const form = document.querySelector("#totalizar-form");
  
@@ -17,6 +19,7 @@ form.addEventListener("submit", (event) => {
   var porcentajeEstado = porcentaje_estado(codigoEstado.value);
   var precioNeto = cantidadItems.value * precioItems.value;
  
+  //IMPUESTOS
   //CA
   var porcentajeEstadoCA = porcentaje_estado("CA");
   var valorImpuestoCA = valor_impuesto(precioNeto,porcentajeEstadoCA);
@@ -36,6 +39,13 @@ form.addEventListener("submit", (event) => {
   //UT
   var porcentajeEstadoUT = porcentaje_estado("UT");
   var valorImpuestoUT = valor_impuesto(precioNeto,porcentajeEstadoUT);
+
+
+  //DESCUENTOS
+  //1000
+  var porcentajeDescuento1000 = porcentaje_descuento(1000);
+  var valorDescuento1000= valor_descuento(precioNeto,porcentajeDescuento1000);
+
  
   valoresDiv.innerHTML = `<p>Cantidad de Items: ${cantidadItems.value} </p>
                           <p>Precio por Item: $ ${precioItems.value} </p>
@@ -46,5 +56,6 @@ form.addEventListener("submit", (event) => {
                           <p>Impuesto para TX (${porcentajeEstadoTX}%):  $ ${valorImpuestoTX}</p>
                           <p>Impuesto para AL (${porcentajeEstadoAL}%):  $ ${valorImpuestoAL}</p>
                           <p>Impuesto para NV (${porcentajeEstadoNV}%):  $ ${valorImpuestoNV}</p>
-                          <p>Impuesto para UT (${porcentajeEstadoUT}%):  $ ${valorImpuestoUT}</p>`;
+                          <p>Impuesto para UT (${porcentajeEstadoUT}%):  $ ${valorImpuestoUT}</p>
+                          <p>Descuento para $1000 (${porcentajeDescuento1000}%):  $ ${valorDescuento1000}</p>`;
 });
